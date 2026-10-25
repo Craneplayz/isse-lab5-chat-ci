@@ -168,7 +168,7 @@ def delete_message(message_id):
     if index is None:
         return jsonify({"error": "聊天记录不存在。"}), 404
 
-    deleted = messages.pop(index)
+    deleted = messages[index]
     try:
         save_messages()
     except OSError:
