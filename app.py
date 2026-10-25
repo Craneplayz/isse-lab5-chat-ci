@@ -11,7 +11,8 @@ load_dotenv()
 app = Flask(__name__, template_folder="frontend", static_folder="frontend", static_url_path="/static")
 app.json.ensure_ascii = False
 
-DATA_FILE = Path(__file__).resolve().parent / "data" / "messages.json"
+DATA_DIR = Path(os.getenv("LAB5_DATA_DIR", str(Path(__file__).resolve().parent / "data")))
+DATA_FILE = DATA_DIR / "messages.json"
 
 
 def load_messages():
